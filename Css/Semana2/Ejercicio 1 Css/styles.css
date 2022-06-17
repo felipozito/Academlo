@@ -1,0 +1,42 @@
+.content {
+      width: 500px;
+      height: 500px;
+      border: dashed;
+      font-size: 0;
+}
+.p {
+      padding: 10px;
+}
+.item1 {
+      background: yellow;
+      border-bottom: 10px solid rgb(25, 17, 17);
+      border-top: 10px solid rgb(20, 17, 17);
+      height: 210px;
+      width: 230px;
+      display: inline-block;
+}
+.item2 {
+      background: red;
+      border-bottom: 10px gray;
+      border-bottom: 10px solid rgb(25, 17, 17);
+      border-top: 10px solid rgb(20, 17, 17);
+      height: 210px;
+      width: 230px;
+      display: inline-block;
+}
+.item3 {
+      background: salmon;
+      border-left: 10px solid cyan;
+      border-right: 10px solid cyan;
+      height: 230px;
+      width: 210px;
+      display: inline-block;
+}
+.item4 {
+      background: green;
+      border-left: 10px solid cyan;
+      border-right: 10px solid cyan;
+      height: 230px;
+      width: 210px;
+      display: inline-block;
+}
