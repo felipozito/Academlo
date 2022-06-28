@@ -1,0 +1,264 @@
+* {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-size: 16px;
+      font-family: "Rubik", sans-serif;
+}
+:root {
+      --Blue: hsl(246, 80%, 60%);
+      --Light_red_work: hsl(15, 100%, 70%);
+      --Soft_blue_play: hsl(195, 74%, 62%);
+      --Light_red_study: hsl(348, 100%, 68%);
+      --Lime_green_exercise: hsl(145, 58%, 55%);
+      --Violet_social: hsl(264, 64%, 52%);
+      --Soft_orange_self_care: hsl(43, 84%, 65%);
+      --Very_dark_blue: hsl(226, 43%, 10%);
+      --Dark_blue: #0d1323;
+      --Desaturated_blue: hsl(235, 45%, 61%);
+      --Pale_Blue: hsl(236, 100%, 87%);
+      --white: white;
+      --bottom_card: #1d204b;
+}
+body {
+      background: var(--Dark_blue);
+      margin: auto;
+}
+h2,
+p {
+      color: white;
+}
+h2 {
+      font-size: 2rem;
+}
+span {
+      color: var(--Desaturated_blue);
+}
+.content {
+      width: 70%;
+      display: grid;
+      grid-template-columns: 300px 2fr;
+      gap: 1rem;
+      margin: 100px 8px;
+      justify-content: center;
+      align-items: center;
+}
+.box1 {
+      height: 100%;
+      overflow: hidden;
+}
+.box1 img {
+      object-fit: contain;
+      width: 80px;
+      border: 2px solid white;
+      border-radius: 100%;
+}
+.box1_text {
+      background: var(--Blue);
+      padding: 20px 40px;
+      border-radius: 10px;
+}
+.box1_text h2 {
+      font-weight: 300;
+      margin-bottom: 30px;
+}
+.box1_text span {
+      display: block;
+      padding-bottom: 0;
+      color: var(--Pale_Blue);
+}
+.box1_bottom {
+      background: var(--bottom_card);
+      border-radius: 10px;
+      padding: 20px 40px;
+}
+.box1_bottom p,
+span {
+      padding: 20px 0;
+}
+.box2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+}
+.box {
+      background: var(--bottom_card);
+      border-radius: 10px;
+      height: 200px;
+      position: relative;
+}
+.box_header {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 20px;
+}
+.box_main {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 20px;
+}
+.box:nth-child(1)::before {
+      content: " ";
+      position: absolute;
+      height: 60px;
+      width: 100%;
+      background-color: var(--Light_red_work);
+      border-radius: 10px;
+      top: 0px;
+      z-index: -1;
+      background-image: url(./images/icon-work.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      transition: all 0.5s ease-in-out;
+}
+.box:nth-child(2)::before {
+      content: " ";
+      position: absolute;
+      height: 60px;
+      width: 100%;
+      background-color: var(--Soft_blue_play);
+      border-radius: 10px;
+      top: 0px;
+      z-index: -1;
+      background-image: url(./images/icon-play.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      transition: all 0.5s ease-in-out;
+}
+.box:nth-child(3)::before {
+      content: " ";
+      position: absolute;
+      height: 60px;
+      width: 100%;
+      background-color: var(--Light_red_study);
+      border-radius: 10px;
+      top: 0px;
+      z-index: -1;
+      background-image: url(./images/icon-study.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      transition: all 0.5s ease-in-out;
+}
+.box:nth-child(4)::before {
+      content: " ";
+      position: absolute;
+      height: 60px;
+      width: 100%;
+      background-color: var(--Lime_green_exercise);
+      border-radius: 10px;
+      bottom: 0px;
+      z-index: -1;
+      background-image: url(./images/icon-exercise.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      transition: all 0.5s ease-in-out;
+}
+.box:nth-child(5)::before {
+      content: " ";
+      position: absolute;
+      height: 60px;
+      width: 100%;
+      background-color: var(--Violet_social);
+      border-radius: 10px;
+      bottom: 0px;
+      z-index: -1;
+      background-image: url(./images/icon-social.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      transition: all 0.5s ease-in-out;
+}
+.box:nth-child(6)::before {
+      content: " ";
+      position: absolute;
+      height: 60px;
+      width: 100%;
+      background-color: var(--Soft_orange_self_care);
+      border-radius: 10px;
+      bottom: 0px;
+      z-index: -1;
+      background-image: url(./images//icon-self-care.svg);
+      background-repeat: no-repeat;
+      background-position: right;
+      transition: all 0.5s ease-in-out;
+}
+.box:nth-child(1):hover::before {
+      transform: translateY(-40px);
+}
+.box:nth-child(2):hover::before {
+      transform: translateY(-40px);
+}
+.box:nth-child(3):hover::before {
+      transform: translateY(-40px);
+}
+.box:nth-child(4):hover::before {
+      transform: translateY(40px);
+}
+.box:nth-child(5):hover::before {
+      transform: translateY(40px);
+}
+.box:nth-child(6):hover::before {
+      transform: translateY(40px);
+}
+
+@media only screen and (max-width: 600px) {
+      .content {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin: 100px 8px;
+            justify-content: center;
+            align-items: center;
+      }
+      .box1_bottom {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: 20px 0px;
+      }
+      .box2 {
+            gap: 45px;
+      }
+      .box:nth-child(1)::before {
+            top: -40px;
+      }
+      .box:nth-child(2)::before {
+            top: -40px;
+      }
+      .box:nth-child(3)::before {
+            top: -40px;
+      }
+      .box:nth-child(4)::before {
+            top: -40px;
+      }
+      .box:nth-child(5)::before {
+            top: -40px;
+      }
+      .box:nth-child(6)::before {
+            top: -40px;
+      }
+      .box:nth-child(7)::before {
+            top: -40px;
+      }
+      .box:nth-child(8)::before {
+            top: -40px;
+      }
+      .box:nth-child(1):hover::before {
+            transform: translateY(-0px);
+      }
+      .box:nth-child(2):hover::before {
+            transform: translateY(-0px);
+      }
+      .box:nth-child(3):hover::before {
+            transform: translateY(-0px);
+      }
+      .box:nth-child(4):hover::before {
+            transform: translateY(0px);
+      }
+      .box:nth-child(5):hover::before {
+            transform: translateY(0px);
+      }
+      .box:nth-child(6):hover::before {
+            transform: translateY(0px);
+      }
+}

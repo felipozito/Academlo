@@ -36,8 +36,10 @@ body {
 }
 .navbar a {
       font-weight: bold;
+      display: block;
       color: var(--primary_text);
 }
+
 .home {
       height: 500px;
       position: relative;
@@ -74,7 +76,7 @@ h3 {
 }
 .news {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
       gap: 10px;
       margin: 0 10px;
       cursor: pointer;
