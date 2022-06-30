@@ -1,0 +1,89 @@
+* {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "League Spartan", sans-serif;
+      font-size: 15px;
+}
+:root {
+      --Very_Dark_Magenta: hsl(300, 43%, 22%);
+      --Soft_Pink: hsl(333, 80%, 67%);
+      --Dark_Grayish_Magenta: hsl(303, 10%, 53%);
+      --Light_Grayish_Magenta: hsl(300, 24%, 96%);
+      --White: hsl(0, 0%, 100%);
+}
+.content {
+      width: 90%;
+      margin: 100px auto;
+}
+.box1 {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+}
+.box1_text h1 {
+      display: inline-block;
+      color: var(--Very_Dark_Magenta);
+      font-size: 40px;
+}
+.box1_text p {
+      color: var(--Dark_Grayish_Magenta);
+      font-size: 20px;
+}
+.box1_starts {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+}
+.card_start {
+      width: 60%;
+      background: var(--Light_Grayish_Magenta);
+      display: flex;
+      justify-content: space-evenly;
+      border-radius: 20px;
+      padding: 12px 0;
+}
+.card_start:nth-child(1) {
+      align-self: flex-start;
+}
+.card_start:nth-child(2) {
+      align-self: center;
+}
+.card_start:nth-child(3) {
+      align-self: flex-end;
+}
+.box2 {
+      display: flex;
+      justify-content: space-evenly;
+}
+.box2_card {
+      background: var(--Very_Dark_Magenta);
+      border-radius: 10px;
+}
+.header {
+      display: flex;
+}
+.header img {
+      border-radius: 100%;
+}
+.header_text h2 {
+      color: var(--White);
+}
+.header_text p {
+      color: var(--Soft_Pink);
+}
+.main p {
+      color: var(--White);
+}
+@media only screen and (max-width: 500px) {
+      .box1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+      }
+      .box1_text h1 {
+            color: var(--Very_Dark_Magenta);
+      }
+}
