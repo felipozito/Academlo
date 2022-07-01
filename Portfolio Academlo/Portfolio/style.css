@@ -58,6 +58,7 @@ a {
 }
 .nav_item li:hover a {
       color: var(--color_decoration);
+      transform: translateY(5px);
 }
 .nav_ico {
       display: none;
@@ -98,6 +99,10 @@ header {
       height: 40px;
       padding: 0px 20px;
       cursor: pointer;
+      transition: all 0.4s;
+}
+.social img:hover {
+      transform: scale(1.1);
 }
 .hero_content {
       background-image: url("./Assets/Rectangle\ 33.svg");
@@ -249,7 +254,20 @@ header {
 }
 .project {
       margin: 20px 0;
+      position: relative;
 }
+.project::after {
+      content: " ";
+      position: absolute;
+      top: -20px;
+      left: -10px;
+      height: 90%;
+      width: 105%;
+      background: var(--color_decoration);
+      /* transform: rotate(10deg); */
+      z-index: -1;
+}
+
 /*?--------------------Footer------------------*/
 .footer {
       text-align: center;
