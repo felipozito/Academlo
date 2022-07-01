@@ -167,11 +167,16 @@ header {
       margin-top: 40px;
 }
 .skills_content {
-      margin: auto;
+      margin: 20px auto;
+      width: 60%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
 }
-.skills h2 {
+.skills > h2 {
       font-size: 50px;
-      text-align: center;
+      width: 60%;
+      margin: auto;
 }
 .skills_bg {
       background-image: url("./Assets/Rectangle\ 34.svg");
@@ -184,8 +189,11 @@ header {
 }
 .skills_item {
       display: flex;
+      align-items: center;
+      gap: 2em;
 }
 .skills_item h2 {
+      font-size: 50px;
       color: var(--color_decoration);
 }
 /**--------------------PORTFOLIO--------------------------*/
@@ -259,4 +267,30 @@ header {
       align-items: center;
       justify-content: center;
       height: 80px;
+}
+
+@media only screen and (max-width: 600px) {
+      .header h1 {
+            font-size: 50px;
+      }
+      .header h2 {
+            font-size: 32px;
+      }
+      .header p {
+            font-size: 14px;
+      }
+      .nav_item {
+            display: none;
+      }
+      .nav_ico {
+            display: block;
+      }
+      .hero_content {
+            height: 80%;
+            width: 60%;
+      }
+      .hero_content img {
+            height: 80%;
+            width: 70%;
+      }
 }
