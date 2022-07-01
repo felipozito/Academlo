@@ -297,11 +297,31 @@ header {
       .p {
             font-size: 16px;
       }
-      .nav_item {
-            display: none;
+      .navbar {
+            background: var(--color_decoration);
       }
       .nav_ico {
             display: block;
+      }
+      .nav_item {
+            background: var(--bg_secondary);
+            position: absolute;
+            width: 100%;
+            top: 80px;
+            left: 0;
+            clip-path: circle(1.4% at 100% 0);
+            transition: all 0.4s ease;
+      }
+      .active {
+            clip-path: circle(140.3% at 99% 0);
+      }
+      .nav_item ul {
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+      }
+      .nav_item ul li {
+            padding: 20px 0;
       }
       .hero_content {
             height: 80%;
