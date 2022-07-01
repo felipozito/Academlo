@@ -185,7 +185,7 @@ header {
 /*?----------------------------SKILLS--------------------------*/
 .skills {
       position: relative;
-      height: 60vh;
+      min-height: 40vh;
       margin-top: 40px;
 }
 .skills_content {
@@ -324,6 +324,9 @@ header {
       .header_text p {
             width: 100px;
       }
+      .skills_bg {
+            width: 30%;
+      }
       .project img {
             width: 300px;
             height: 200px;
@@ -331,5 +334,16 @@ header {
       .social img {
             padding: 0px 10px;
             cursor: pointer;
+      }
+      .skills > h2 {
+            text-align: center;
+            width: 100%;
+      }
+      .skills_content {
+            margin: 20px auto;
+            width: 80%;
+      }
+      .skills_item {
+            gap: 2em;
       }
 }
