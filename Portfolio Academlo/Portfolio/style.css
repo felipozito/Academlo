@@ -66,6 +66,7 @@ a {
 }
 .nav_ico img {
       color: var(--color_main);
+      fill: white;
 }
 
 /**  ---------------------HEADER-----------------------------------*/
@@ -137,6 +138,17 @@ header {
       justify-content: space-around;
       margin-bottom: 10px;
 }
+.logo {
+      opacity: 0.1;
+      transform: scale(0);
+      transition: all 0.5s ease;
+}
+/* .logo:nth-child(1) {
+      transform: translateX(-500%);
+}
+.logo:nth-child(2) {
+      transform: translateX(+500%);
+} */
 .logo img {
       object-fit: cover;
       width: 150px;
@@ -300,6 +312,11 @@ header {
       align-items: center;
       justify-content: center;
       height: 80px;
+}
+/*!-------------------------Efecto---------------------------*/
+.show {
+      transform: scale(1);
+      opacity: 1;
 }
 
 @media only screen and (max-width: 600px) {

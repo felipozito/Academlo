@@ -2,6 +2,7 @@ const icon = document.querySelector(".nav_ico img");
 const menu = document.querySelector(".nav_item");
 const text = document.querySelector("h1");
 const number_skills = document.querySelectorAll(".skills_item h2");
+const about_img = document.querySelectorAll(".logo");
 //------------navbar
 icon.addEventListener("click", () => {
       menu.classList.toggle("active");
@@ -22,7 +23,21 @@ function typing() {
       }
 }
 setTimeout(typing, 200);
-//---------------Skill
-number_skills.forEach((item) => {
-      console.log(item.textContent);
+//----------------Nosotros-----------------
+//-----------------------Animaciones Scroll--------------------
+console.log(about_img);
+window.addEventListener("scroll", () => {
+      //   console.log(about_img[0].getBoundingClientRect().top);
+      about_img.forEach((item) => {
+            if (580 > item.getBoundingClientRect().top) {
+                  item.classList.add("show");
+            } else if (660 < item.getBoundingClientRect().top) {
+                  item.classList.remove("show");
+            }
+      });
 });
+
+// //---------------Skill
+// number_skills.forEach((item) => {
+//       console.log(item.textContent);
+// });

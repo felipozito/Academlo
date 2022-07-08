@@ -1,0 +1,137 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      list-style: none;
+      text-decoration: none;
+}
+:root {
+      --bg_main: #f7f7f8;
+      --color_main: #e94959;
+      --bg_secondary: #e6e6e6;
+      --text_main: rgb(0, 0, 0);
+      --text_secondary: #595959;
+      --text_alert: white;
+}
+.dark {
+}
+body {
+      background: var(--bg_main);
+}
+a,
+i {
+      cursor: pointer;
+      color: var(--text_main);
+}
+.content_page {
+      max-width: 60vw;
+      margin: auto;
+}
+.navbar {
+      display: flex;
+      height: 60px;
+      position: fixed;
+      top: 0;
+      z-index: 1;
+      min-width: 60vw;
+}
+.navbar_label {
+      width: 50%;
+}
+.navbar_label ul {
+      display: flex;
+      height: 100%;
+      gap: 2em;
+      margin-left: 20px;
+      align-items: center;
+}
+.navbar_label li:hover a {
+      color: var(--color_main);
+}
+.navbar_label li a {
+      font-weight: bold;
+}
+.navbar_items {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin-right: 5px;
+      padding: 20px;
+}
+.navbar_items i {
+      padding: 8px;
+      font-size: 20px;
+}
+.bx-cart {
+      position: relative;
+}
+.bx-cart p {
+      position: absolute;
+      display: block;
+      width: 18px;
+      height: 18px;
+      bottom: 0px;
+      right: 0px;
+      border-radius: 100%;
+      background: var(--text_main);
+      font-size: 10px;
+      text-align: center;
+      font-weight: bold;
+      padding-top: 2px;
+      color: var(--text_alert);
+}
+.navbar_icon {
+      display: none;
+}
+/** ------------------home-----------------------*/
+
+.home {
+      height: 80vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+}
+.home_text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin: 0px 20px;
+}
+.home_text h1 {
+      width: 280px;
+      padding: 20px 0;
+}
+.home_text h2 {
+      color: var(--color_main);
+      margin-top: 20px;
+}
+.home_text p {
+      width: 80%;
+}
+.home_btn {
+      display: flex;
+      margin-top: 20px;
+}
+/* .home_bg {
+      position: absolute;
+      background: var(--color_main);
+      width: 40%;
+      height: 100%;
+      top: 0;
+      right: 0;
+      z-index: -1;
+} */
+.home_image {
+      background: var(--color_main);
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.home_image img {
+      object-fit: cover;
+      height: 350px;
+}
