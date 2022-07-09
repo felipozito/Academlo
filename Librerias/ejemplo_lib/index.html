@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>use lib</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="./styles.css">
+
+</head>
+
+<body>
+
+    <section>
+        <h2>swiper</h2>
+        <div class="content_slider swiper">
+
+            <div class="swiper-wrapper">
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/angular.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 1</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/css.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 2</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/html.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 3</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/javascript.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 4</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/mongodb.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 5</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/nodejs.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 6</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/postgresql.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 7</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/python.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 8</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/react.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 9</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+                <div class="item swiper-slide">
+                    <div class="item__box">
+                        <img src="./svg/vuejs.svg" alt="">
+                    </div>
+
+                    <div class="item__info">
+                        <p><b>item 10</b></p>
+                        <p>Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2>Filtros</h2>
+
+        <div class="filters">
+            <div class="tags">
+                <p data-filter='all'>todos</p>
+                <p data-filter='.leng'>lenguaje</p>
+                <p data-filter='.lib'>Libreria</p>
+                <p data-filter='.fm'>framework</p>
+                <p data-filter='.db'>DB</p>
+            </div>
+
+            <div class="content_element">
+
+                <div class="element fm">
+                    <img src="./svg/angular.svg" alt="">
+                </div>
+
+                <div class="element leng">
+                    <img src="./svg/css.svg" alt="">
+                </div>
+
+                <div class="element leng">
+                    <img src="./svg/html.svg" alt="">
+                </div>
+
+                <div class="element leng">
+                    <img src="./svg/javascript.svg" alt="">
+                </div>
+
+                <div class="element db">
+                    <img src="./svg/mongodb.svg" alt="">
+                </div>
+
+                <div class="element leng">
+                    <img src="./svg/nodejs.svg" alt="">
+                </div>
+
+                <div class="element db">
+                    <img src="./svg/postgresql.svg" alt="">
+                </div>
+
+                <div class="element leng">
+                    <img src="./svg/python.svg" alt="">
+                </div>
+
+                <div class="element lib">
+                    <img src="./svg/react.svg" alt="">
+                </div>
+
+                <div class="element fm">
+                    <img src="./svg/vuejs.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"
+        integrity="sha512-nKZDK+ztK6Ug+2B6DZx+QtgeyAmo9YThZob8O3xgjqhw2IVQdAITFasl/jqbyDwclMkLXFOZRiytnUrXk/PM6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./main.js" type="module"></script>
+</body>
+
+</html>
