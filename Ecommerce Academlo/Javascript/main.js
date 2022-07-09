@@ -1,10 +1,10 @@
-import { data } from "./data";
+// import { data } from "./data";
 iconTheme = document.querySelectorAll(".navbar_items i");
 navbar = document.querySelector(".navbar");
 navbar_list = document.querySelector(".navbar_label");
 shoppingCart = document.querySelector(".shopping_cart");
 
-console.log(data);
+// console.log(data);
 window.addEventListener("click", (e) => {
       const event = e.target.classList.value;
       const type = e.target.dataset.type;
