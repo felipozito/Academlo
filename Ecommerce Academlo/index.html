@@ -11,25 +11,25 @@
 </head>
 
 <body class="">
-    <div class="content_page">
-        <nav class="navbar">
-            <div class="navbar_label">
-                <ul>
-                    <li><a href="#Home">FA STORE</a></li>
-                    <li><a href="#Home">HOME</a></li>
-                    <li><a href="#Products">PRODUCTS</a></li>
-                </ul>
-            </div>
-            <div class="navbar_items">
-                <i class='bx bx-cart'>
-                    <p class="car_number">0</p>
-                </i>
-                <i class='bx bx-moon'></i>
-            </div>
+    <nav class="navbar">
+        <a href="#Home" class="nav_logo">FA STORE</a>
+        <div class="navbar_label">
+            <ul>
+                <li><a href="#Home">HOME</a></li>
+                <li><a href="#Products">PRODUCTS</a></li>
+            </ul>
+        </div>
+        <div class="navbar_items">
+            <i class='bx bx-cart'>
+                <p class="car_number">0</p>
+            </i>
+            <i class='bx bx-moon'></i>
             <div class="navbar_icon">
                 <i class='bx bx-menu'></i>
             </div>
-        </nav>
+        </div>
+    </nav>
+    <div class="content_page">
         <section id="Home" class="home">
             <div class="home_text">
                 <h1> New Sweatershirt COLLECTIONS 2022</h1>
@@ -44,8 +44,17 @@
             <div class="home_image">
                 <img src="./Assets/hoddie2.png" alt="">
             </div>
+        </section>
+        <main class="products" id="Products">
+            <div class="main_text">
+                <h2 data-type="all">Show All</h2>
+                <h2 data-type="hoodies">Hoodies</h2>
+                <h2 data-type="shirts">Shirts</h2>
+                <h2 data-type="sweatshirt">Sweatshirts</h2>
+            </div>
+
+        </main>
     </div>
-    </section>
     </div>
     <div class="shopping_cart">
         <div class="nav_shopping">
@@ -61,9 +70,38 @@
             <h2>ITEM: 0</h2>
             <h2>$0.00</h2>
         </div>
-
     </div>
-    <script src="./Javascript/main.js"></script>
+    <footer id="Footer" class="footer">
+        <div class="footer_our">
+            <h2>Our Informacion</h2>
+            <p>Quito-Ecuador</p>
+        </div>
+        <div class="footer_about">
+            <h2>About Us</h2>
+            <a>Support Server</a>
+            <a>Custom Server</a>
+            <a>About Us</a>
+            <a>Copyright</a>
+        </div>
+        <div class="footer_products">
+            <h2>Products</h2>
+            <a>Hoddies</a>
+            <a>Shirt</a>
+            <a>Sweatershirt</a>
+        </div>
+        <div class="footer_social">
+            <h2>Social</h2>
+            <div class="content_social">
+                <i class='bx bxl-facebook-circle'></i>
+                <i class='bx bxl-twitter'></i>
+                <i class='bx bxl-instagram'></i>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <p>Hecho con ❤️ en Academlo</p>
+    </div>
+    <script src="./Javascript/main.js" type="module"></script>
 </body>
 
 </html>
