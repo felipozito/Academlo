@@ -44,6 +44,7 @@ function addItem(event) {
                   item.unit++;
             }
       });
+      warningCart(mylist);
       printCart(mylist);
 }
 function substractItem(event) {
@@ -51,10 +52,27 @@ function substractItem(event) {
       mylist.forEach((item) => {
             if (item.id == id) {
                   item.unit--;
-                  if (item.unit == 0) item.unit = 1;
+                  if (item.unit == 0) deleteCart(event.parentNode.parentNode);
             }
       });
       printCart(mylist);
+}
+function warningCart(list) {
+      console.log(list);
+      list.forEach((item, index1) => {
+            products.forEach((product, index) => {
+                  if (item.id == product.id) {
+                        if (products[index].stock >= 0) {
+                              products[index].stock--;
+                        }
+                        if (products[index].stock < 0) {
+                              products[index].stock = 0;
+                              item[index1].unit = 9;
+                              return alert("Not Enough Products");
+                        }
+                  }
+            });
+      });
 }
 function deleteCart(event) {
       const id = event.parentNode.dataset.key;
@@ -69,6 +87,7 @@ function addCart(id, event) {
             price: event.querySelector(".card_title h2").textContent.replace(" $", ""),
             img: event.querySelector(".card_img img").getAttribute("src"),
             unit: 1,
+            stock: event.querySelector(".card_title > p").textContent,
       };
       if (mylist.some((item) => item.id == id)) {
             const update_product = mylist.map((item) => {
@@ -83,7 +102,10 @@ function addCart(id, event) {
       } else {
             mylist = [...mylist, info_item];
       }
+      warningCart(mylist);
       printCart(mylist);
+      AllProducts(products);
+
       //   console.log(mylist);
 }
 function substractCart() {}
@@ -115,6 +137,7 @@ function printCart(list) {
                     <div class="cart_card_text">
                         <h2>Price: ${item.name}</h2>
                         <h2 class="total">Subtotal: ${item.price * item.unit} $</h2>
+                        <p>Stock: ${item.stock}</p>
                         <div class="cart_btn">
                             <i class='bx bx-minus-circle'></i>
                             <h2 class="units">${item.unit} units</h2>
@@ -139,10 +162,13 @@ function printCart(list) {
 printCart(mylist);
 
 window.addEventListener("scroll", () => {
+      const logo = document.querySelector(".nav_logo");
       if (window.scrollY == 0) {
             navbar.classList.remove("sticky");
+            // logo.style.color = "var(--text_alert)";
       } else {
             navbar.classList.add("sticky");
+            // logo.style.color = "var(--color_main)";
       }
 });
 function darkmode(event) {
@@ -171,9 +197,9 @@ function showMenu() {
 //---------------------------------------Carrito------------------------------------------
 
 const products = [
-      { id: 1, name: "Hoddies", price: 35, stock: 20, collection: 2022, state: "free", type: "hoodies", img: "./Assets/hoddie.png" },
-      { id: 2, name: "Shirts", price: 20, stock: 15, collection: 2022, state: "free", type: "shirts", img: "./Assets/hoddie1.png" },
-      { id: 3, name: "Sweartshirt", price: 40, stock: 18, collection: 2022, state: "free", type: "sweatshirt", img: "./Assets/hoddie2.png" },
+      { id: 1, name: "Hoddies", price: 35, stock: 3, collection: 2022, state: "free", type: "hoodies", img: "./Assets/hoddie.png" },
+      { id: 2, name: "Shirts", price: 20, stock: 10, collection: 2022, state: "free", type: "shirts", img: "./Assets/hoddie1.png" },
+      { id: 3, name: "Sweartshirt", price: 40, stock: 10, collection: 2022, state: "free", type: "sweatshirt", img: "./Assets/hoddie2.png" },
 ];
 function AllProducts(products) {
       const content_products = document.querySelector(".products_list");
