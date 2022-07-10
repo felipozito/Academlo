@@ -8,7 +8,7 @@ window.addEventListener("click", (e) => {
       const event = e.target.classList.value;
       const type = e.target.dataset.type;
       const item_id = e.target.parentNode.dataset.item;
-      //   console.log(item_id);
+      //   console.log(e.target.parentNode.classList.value);
       if (event.includes("bx bx-moon") || event.includes("bx bx-sun")) {
             darkmode(event);
       }
@@ -36,6 +36,9 @@ window.addEventListener("click", (e) => {
       if (event.includes("bx-plus-circle")) {
             addItem(e.target);
       }
+      if (e.target.parentNode.classList.value.includes("checkout")) {
+            console.log("Comprar");
+      }
 });
 function addItem(event) {
       const id = event.parentNode.parentNode.parentNode.dataset.key;
@@ -58,18 +61,11 @@ function substractItem(event) {
       printCart(mylist);
 }
 function warningCart(list) {
-      console.log(list);
       list.forEach((item, index1) => {
             products.forEach((product, index) => {
-                  if (item.id == product.id) {
-                        if (products[index].stock >= 0) {
-                              products[index].stock--;
-                        }
-                        if (products[index].stock < 0) {
-                              products[index].stock = 0;
-                              item[index1].unit = 9;
-                              return alert("Not Enough Products");
-                        }
+                  if ((item.id == product.id) & (item.unit > product.stock)) {
+                        item.unit--;
+                        return alert("Not Enough Products");
                   }
             });
       });
@@ -105,14 +101,13 @@ function addCart(id, event) {
       warningCart(mylist);
       printCart(mylist);
       AllProducts(products);
-
       //   console.log(mylist);
 }
-function substractCart() {}
 function printCart(list) {
       const content = document.querySelector(".main_cart");
       const footer = document.querySelector(".footer_shopping");
       const items = document.querySelector(".car_number");
+      const check = document.querySelector(".checkout");
       let count = 0;
       let total = 0;
       let empty = `
@@ -126,6 +121,7 @@ function printCart(list) {
             footer.innerHTML = `
             <h2>Items: 0</h2>
             <h2>Total: $0.00</h2>`;
+            check.classList.add("disabled");
       } else {
             let html = "";
             list.forEach((item) => {
@@ -148,6 +144,7 @@ function printCart(list) {
                   </div>
           `;
             });
+            check.classList.remove("disabled");
             content.innerHTML = html;
             list.forEach((item) => (count += item.unit));
             list.forEach((item) => (total += item.unit * item.price));
