@@ -8,11 +8,11 @@ window.addEventListener("click", (e) => {
       const event = e.target.classList.value;
       const type = e.target.dataset.type;
       const item_id = e.target.parentNode.dataset.item;
-      console.log(item_id);
+      //   console.log(item_id);
       if (event.includes("bx bx-moon") || event.includes("bx bx-sun")) {
             darkmode(event);
       }
-      if (event.includes("bx bx-cart")) {
+      if (event.includes("bx bx-cart") || event.includes("car_number")) {
             openCart();
       }
       if (event.includes("shopping_close")) {
@@ -27,11 +27,42 @@ window.addEventListener("click", (e) => {
       if (item_id) {
             addCart(item_id, e.target.parentNode);
       }
+      if (event.includes("bx-trash")) {
+            deleteCart(e.target);
+      }
+      if (event.includes("bx-minus-circle")) {
+            substractItem(e.target);
+      }
+      if (event.includes("bx-plus-circle")) {
+            addItem(e.target);
+      }
 });
-
+function addItem(event) {
+      const id = event.parentNode.parentNode.parentNode.dataset.key;
+      mylist.forEach((item) => {
+            if (item.id == id) {
+                  item.unit++;
+            }
+      });
+      printCart(mylist);
+}
+function substractItem(event) {
+      const id = event.parentNode.parentNode.parentNode.dataset.key;
+      mylist.forEach((item) => {
+            if (item.id == id) {
+                  item.unit--;
+                  if (item.unit == 0) item.unit = 1;
+            }
+      });
+      printCart(mylist);
+}
+function deleteCart(event) {
+      const id = event.parentNode.dataset.key;
+      const array_filter = mylist.filter((item) => item.id !== id);
+      mylist = [...array_filter];
+      printCart(mylist);
+}
 function addCart(id, event) {
-      const items = document.querySelector(".car_number");
-      let count = 0;
       const info_item = {
             id: event.getAttribute("data-item"),
             name: event.querySelector(".card_text > h2").textContent,
@@ -52,30 +83,60 @@ function addCart(id, event) {
       } else {
             mylist = [...mylist, info_item];
       }
-      mylist.forEach((item) => (count += item.unit));
-      items.textContent = count;
+      printCart(mylist);
       //   console.log(mylist);
 }
+function substractCart() {}
 function printCart(list) {
       const content = document.querySelector(".main_cart");
-      let html = "";
+      const footer = document.querySelector(".footer_shopping");
+      const items = document.querySelector(".car_number");
+      let count = 0;
+      let total = 0;
       let empty = `
             <img src="./Assets/empty-cart.png" alt="">
             <p>Your cart is empty
                 You can add items to your cart by clicking on the "" button on the product page.</p>
             `;
       if (list.length === 0) {
-            innerHTML = empty;
+            content.innerHTML = empty;
+            items.textContent = count;
+            footer.innerHTML = `
+            <h2>Items: 0</h2>
+            <h2>Total: $0.00</h2>`;
+      } else {
+            let html = "";
+            list.forEach((item) => {
+                  html += `
+                  <div class="cart_card" data-key=${item.id}>
+                    <div class="cart_img">
+                        <img src='${item.img}'>
+                    </div>
+                    <div class="cart_card_text">
+                        <h2>Price: ${item.name}</h2>
+                        <h2 class="total">Subtotal: ${item.price * item.unit} $</h2>
+                        <div class="cart_btn">
+                            <i class='bx bx-minus-circle'></i>
+                            <h2 class="units">${item.unit} units</h2>
+                            <i class='bx bx-plus-circle'></i>
+                        </div>
+                    </div>
+                    <i class='bx bx-trash'></i>
+                  </div>
+          `;
+            });
+            content.innerHTML = html;
+            list.forEach((item) => (count += item.unit));
+            list.forEach((item) => (total += item.unit * item.price));
+            items.textContent = count;
+            footer.innerHTML = `
+                <h2>items: ${count}</h2>
+                <h2>Total: $ ${total}</h2>
+            `;
       }
-      list.forEach((item, index) => {
-            html += `
-            
-      `;
-      });
       //   console.log(html);
-      content.innerHTML = html;
 }
-// printCart();
+printCart(mylist);
 
 window.addEventListener("scroll", () => {
       if (window.scrollY == 0) {
@@ -106,9 +167,6 @@ function showMenu() {
       } else {
             navbar.classList.remove("sticky");
       }
-}
-function filterItems() {
-      console.log(item);
 }
 //---------------------------------------Carrito------------------------------------------
 
