@@ -2,8 +2,20 @@ const iconTheme = document.querySelectorAll(".navbar_items i");
 const navbar = document.querySelector(".navbar");
 const navbar_list = document.querySelector(".navbar_label");
 const shoppingCart = document.querySelector(".shopping_cart");
+import products from "./data.js";
+import showMenu from "./navbar.js";
 let mylist = [];
 
+window.addEventListener("DOMContentLoaded", (event) => {
+      loader();
+      AllProducts(products);
+      printCart(mylist);
+});
+function loader() {
+      setTimeout(() => {
+            document.querySelector(".loader_content").style.display = "none";
+      }, 3000);
+}
 window.addEventListener("click", (e) => {
       const event = e.target.classList.value;
       const type = e.target.dataset.type;
@@ -37,9 +49,32 @@ window.addEventListener("click", (e) => {
             addItem(e.target);
       }
       if (e.target.parentNode.classList.value.includes("checkout")) {
-            console.log("Comprar");
+            checkout();
       }
 });
+
+window.addEventListener("scroll", () => {
+      const logo = document.querySelector(".nav_logo");
+      if (window.scrollY == 0) {
+            navbar.classList.remove("sticky");
+            // logo.style.color = "var(--text_alert)";
+      } else {
+            navbar.classList.add("sticky");
+            // logo.style.color = "var(--color_main)";
+      }
+});
+function checkout() {
+      mylist.forEach((item) => {
+            products.forEach((product) => {
+                  if (item.id == product.id) {
+                        product.stock -= item.unit;
+                  }
+            });
+      });
+      mylist = [];
+      AllProducts(products);
+      printCart(mylist);
+}
 function addItem(event) {
       const id = event.parentNode.parentNode.parentNode.dataset.key;
       mylist.forEach((item) => {
@@ -61,8 +96,8 @@ function substractItem(event) {
       printCart(mylist);
 }
 function warningCart(list) {
-      list.forEach((item, index1) => {
-            products.forEach((product, index) => {
+      list.forEach((item) => {
+            products.forEach((product) => {
                   if ((item.id == product.id) & (item.unit > product.stock)) {
                         item.unit--;
                         return alert("Not Enough Products");
@@ -77,30 +112,37 @@ function deleteCart(event) {
       printCart(mylist);
 }
 function addCart(id, event) {
-      const info_item = {
-            id: event.getAttribute("data-item"),
-            name: event.querySelector(".card_text > h2").textContent,
-            price: event.querySelector(".card_title h2").textContent.replace(" $", ""),
-            img: event.querySelector(".card_img img").getAttribute("src"),
-            unit: 1,
-            stock: event.querySelector(".card_title > p").textContent,
-      };
-      if (mylist.some((item) => item.id == id)) {
-            const update_product = mylist.map((item) => {
-                  if (item.id == id) {
-                        item.unit++;
-                        return item;
+      let info_item = {};
+      products.forEach((item) => {
+            if ((item.id == id) & (item.stock > 0)) {
+                  info_item = {
+                        id: event.getAttribute("data-item"),
+                        name: event.querySelector(".card_text > h2").textContent,
+                        price: event.querySelector(".card_title h2").textContent.replace(" $", ""),
+                        img: event.querySelector(".card_img img").getAttribute("src"),
+                        unit: 1,
+                        stock: event.querySelector(".card_title > p").textContent,
+                  };
+                  if (mylist.some((item) => item.id == id)) {
+                        const update_product = mylist.map((item) => {
+                              if (item.id == id) {
+                                    item.unit++;
+                                    return item;
+                              } else {
+                                    return item;
+                              }
+                        });
+                        mylist = [...update_product];
                   } else {
-                        return item;
+                        mylist = [...mylist, info_item];
                   }
-            });
-            mylist = [...update_product];
-      } else {
-            mylist = [...mylist, info_item];
-      }
-      warningCart(mylist);
-      printCart(mylist);
-      AllProducts(products);
+                  warningCart(mylist);
+                  printCart(mylist);
+                  AllProducts(products);
+            } else if ((item.id == id) & (item.stock == 0)) {
+                  alert("We don't have units available");
+            }
+      });
       //   console.log(mylist);
 }
 function printCart(list) {
@@ -131,7 +173,7 @@ function printCart(list) {
                         <img src='${item.img}'>
                     </div>
                     <div class="cart_card_text">
-                        <h2>Price: ${item.name}</h2>
+                        <h2>Name: ${item.name}</h2>
                         <h2 class="total">Subtotal: ${item.price * item.unit} $</h2>
                         <p>Stock: ${item.stock}</p>
                         <div class="cart_btn">
@@ -156,18 +198,6 @@ function printCart(list) {
       }
       //   console.log(html);
 }
-printCart(mylist);
-
-window.addEventListener("scroll", () => {
-      const logo = document.querySelector(".nav_logo");
-      if (window.scrollY == 0) {
-            navbar.classList.remove("sticky");
-            // logo.style.color = "var(--text_alert)";
-      } else {
-            navbar.classList.add("sticky");
-            // logo.style.color = "var(--color_main)";
-      }
-});
 function darkmode(event) {
       if (event.includes("bx bx-moon")) {
             iconTheme[1].classList.replace("bx-moon", "bx-sun");
@@ -183,21 +213,7 @@ function openCart() {
 function closeCart() {
       document.querySelector(".shopping_cart").classList.remove("open_cart");
 }
-function showMenu() {
-      navbar_list.classList.toggle("show_nav");
-      if (navbar_list.classList.value.includes("show_nav")) {
-            navbar.classList.add("sticky");
-      } else {
-            navbar.classList.remove("sticky");
-      }
-}
 //---------------------------------------Carrito------------------------------------------
-
-const products = [
-      { id: 1, name: "Hoddies", price: 35, stock: 3, collection: 2022, state: "free", type: "hoodies", img: "./Assets/hoddie.png" },
-      { id: 2, name: "Shirts", price: 20, stock: 10, collection: 2022, state: "free", type: "shirts", img: "./Assets/hoddie1.png" },
-      { id: 3, name: "Sweartshirt", price: 40, stock: 10, collection: 2022, state: "free", type: "sweatshirt", img: "./Assets/hoddie2.png" },
-];
 function AllProducts(products) {
       const content_products = document.querySelector(".products_list");
       let html = "";
@@ -221,8 +237,6 @@ function AllProducts(products) {
       //   console.log(html);
       content_products.innerHTML = html;
 }
-AllProducts(products);
-
 function filterType(type, products) {
       const content_products = document.querySelector(".products_list");
       let html = "";
