@@ -74,6 +74,7 @@ h1 {
 }
 .navbar_label li a {
       font-weight: bold;
+      padding: 0px 10px;
 }
 .navbar_items {
       width: 50%;
