@@ -3,7 +3,6 @@ const navbar = document.querySelector(".navbar");
 const navbar_list = document.querySelector(".navbar_label");
 const shoppingCart = document.querySelector(".shopping_cart");
 import products from "./data.js";
-import showMenu from "./navbar.js";
 let mylist = [];
 
 window.addEventListener("DOMContentLoaded", (event) => {
@@ -63,6 +62,14 @@ window.addEventListener("scroll", () => {
             // logo.style.color = "var(--color_main)";
       }
 });
+function showMenu() {
+      navbar_list.classList.toggle("show_nav");
+      if (navbar_list.classList.value.includes("show_nav")) {
+            navbar.classList.add("sticky");
+      } else {
+            navbar.classList.remove("sticky");
+      }
+}
 function checkout() {
       mylist.forEach((item) => {
             products.forEach((product) => {

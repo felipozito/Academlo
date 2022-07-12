@@ -424,7 +424,7 @@ a {
             color: var(--text_alert);
             border: 1px solid var(--text_alert);
       }
-      .na .navbar_icon {
+      .navbar .navbar_icon {
             display: block;
             display: flex;
             align-items: center;
