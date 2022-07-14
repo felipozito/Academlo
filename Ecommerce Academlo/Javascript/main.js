@@ -3,16 +3,18 @@ const navbar = document.querySelector(".navbar");
 const navbar_list = document.querySelector(".navbar_label");
 const shoppingCart = document.querySelector(".shopping_cart");
 import products from "./data.js";
+let total_list = products;
 let mylist = [];
 
 window.addEventListener("DOMContentLoaded", (event) => {
       loader();
       if (localStorage.getItem("db")) {
             const db = JSON.parse(localStorage.getItem("db"));
-            AllProducts(db);
+            total_list = db;
+            AllProducts(total_list);
       } else {
-            localStorage.setItem("products", JSON.stringify(products));
-            AllProducts(products);
+            // localStorage.setItem("db", JSON.stringify(products));
+            AllProducts(total_list);
       }
       //   AllProducts(products);
       if (localStorage.getItem("theme")) {
@@ -91,17 +93,17 @@ function showMenu() {
 }
 function checkout() {
       mylist.forEach((item) => {
-            products.forEach((product) => {
+            total_list.forEach((product) => {
                   if (item.id == product.id) {
                         product.stock -= item.unit;
                   }
             });
       });
       mylist = [];
-      AllProducts(products);
+      localStorage.setItem("db", JSON.stringify(total_list));
+      AllProducts(JSON.parse(localStorage.getItem("db")));
       printCart(mylist);
       localStorage.setItem("cart", JSON.stringify(mylist));
-      localStorage.setItem("db", JSON.stringify(products));
 }
 function addItem(event) {
       const id = event.parentNode.parentNode.parentNode.dataset.key;
@@ -127,7 +129,7 @@ function substractItem(event) {
 }
 function warningCart(list) {
       list.forEach((item) => {
-            products.forEach((product) => {
+            total_list.forEach((product) => {
                   if ((item.id == product.id) & (item.unit > product.stock)) {
                         item.unit--;
                         return alert("Not Enough Products");
@@ -144,7 +146,7 @@ function deleteCart(event) {
 }
 function addCart(id, event) {
       let info_item = {};
-      products.forEach((item) => {
+      total_list.forEach((item) => {
             if ((item.id == id) & (item.stock > 0)) {
                   info_item = {
                         id: event.getAttribute("data-item"),
@@ -169,7 +171,7 @@ function addCart(id, event) {
                   }
                   warningCart(mylist);
                   printCart(mylist);
-                  AllProducts(products);
+                  //   AllProducts(products);
             } else if ((item.id == id) & (item.stock == 0)) {
                   alert("We don't have units available");
             }
