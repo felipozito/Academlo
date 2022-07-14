@@ -7,8 +7,27 @@ let mylist = [];
 
 window.addEventListener("DOMContentLoaded", (event) => {
       loader();
-      AllProducts(products);
+      if (localStorage.getItem("db")) {
+            const db = JSON.parse(localStorage.getItem("db"));
+            AllProducts(db);
+      } else {
+            localStorage.setItem("products", JSON.stringify(products));
+            AllProducts(products);
+      }
+      //   AllProducts(products);
+      if (localStorage.getItem("theme")) {
+            document.body.classList.add("darkMode");
+            iconTheme[1].classList.replace("bx-moon", "bx-sun");
+      } else {
+            document.body.classList.remove("darkMode");
+            iconTheme[1].classList.replace("bx-sun", "bx-moon");
+      }
+      if (localStorage.getItem("cart")) {
+            mylist = JSON.parse(localStorage.getItem("cart"));
+      }
+
       printCart(mylist);
+      //   console.log(localStorage.get("theme"));
 });
 function loader() {
       setTimeout(() => {
@@ -81,6 +100,8 @@ function checkout() {
       mylist = [];
       AllProducts(products);
       printCart(mylist);
+      localStorage.setItem("cart", JSON.stringify(mylist));
+      localStorage.setItem("db", JSON.stringify(products));
 }
 function addItem(event) {
       const id = event.parentNode.parentNode.parentNode.dataset.key;
@@ -91,6 +112,7 @@ function addItem(event) {
       });
       warningCart(mylist);
       printCart(mylist);
+      localStorage.setItem("cart", JSON.stringify(mylist));
 }
 function substractItem(event) {
       const id = event.parentNode.parentNode.parentNode.dataset.key;
@@ -101,6 +123,7 @@ function substractItem(event) {
             }
       });
       printCart(mylist);
+      localStorage.setItem("cart", JSON.stringify(mylist));
 }
 function warningCart(list) {
       list.forEach((item) => {
@@ -117,6 +140,7 @@ function deleteCart(event) {
       const array_filter = mylist.filter((item) => item.id !== id);
       mylist = [...array_filter];
       printCart(mylist);
+      localStorage.setItem("cart", JSON.stringify(mylist));
 }
 function addCart(id, event) {
       let info_item = {};
@@ -150,6 +174,7 @@ function addCart(id, event) {
                   alert("We don't have units available");
             }
       });
+      localStorage.setItem("cart", JSON.stringify(mylist));
       //   console.log(mylist);
 }
 function printCart(list) {
@@ -209,9 +234,14 @@ function darkmode(event) {
       if (event.includes("bx bx-moon")) {
             iconTheme[1].classList.replace("bx-moon", "bx-sun");
             document.body.classList.add("darkMode");
+            localStorage.setItem("theme", "darkMode");
       } else {
             iconTheme[1].classList.replace("bx-sun", "bx-moon");
             document.body.classList.remove("darkMode");
+            localStorage.removeItem("theme");
+      }
+      if (localStorage.getItem("theme")) {
+            console.log("asdasd");
       }
 }
 function openCart() {
