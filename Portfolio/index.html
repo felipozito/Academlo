@@ -13,13 +13,13 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://kit.fontawesome.com/757be4cedc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estilos.css">
+
     <title>Portfolio</title>
 </head>
 
 <body>
     <header>
-        <a href="#" class="logo">Portfolio</a>
+        <a href="#" class="logo">FA</a>
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navbar">
             <li><a href="#home">Home</a></li>
@@ -28,7 +28,7 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#contact">Contact Us</a></li>
         </ul>
-        <a href="#" class="h-btn">Curriculum</a>
+        <a href="./Assets/CV_Felipe_Asimbaya.pdf" target="_blank" download="CV_FelipeAsimbaya.pdf" class="h-btn">CV</a>
         <div class="colors" id="toggle-colors">
             <div class="colors_item colors_item--red" data-color=" hsl(2, 84%, 56%)"></div>
             <div class="colors_item colors_item--orange" data-color="hsl(24, 84%, 56%)"></div>
@@ -37,105 +37,117 @@
             <div class="colors_item colors_item--green" data-color="hsl(116, 80%, 40%)"></div>
             <div class="colors_item colors_item--purple" data-color="hsl(278, 84%, 56%)"></div>
         </div>
+        <i class='bx bxs-sun'></i>
     </header>
     <section class="home" id="home">
         <div class="home-text">
             <h4>Hello, my names is</h4>
-            <h1>Felipe <span>Asimbaya</span></h1>
+            <h1 class="name">Felipe Asimbaya </h1>
             <h3>I'm a Fronted Developer</h3>
-            <div class="newslatter">
-                <form action="">
-                    <input type="email" name="email" id="email" placeholder="Enter your Email">
-                    <input type="submit" name="submit" value="Let's Start">
-                </form>
-            </div>
+            <a class="contact_me">Contact me</a>
+        </div>
+        <div class="home_img">
+            <img src="./Assets/5.jpg" alt="">
         </div>
     </section>
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="./Assets/about.jpg" alt="imgAbout">
-        </div>
-        <div class="about-text">
-            <h2>About Me</h2>
-            <h5>Developer <span>& Desginer</span></h5>
-            <p>I'm a Front-End web DEveloper, I can provide clean code and pixel perfect design.
-                I also make the website more & more intereactive with web animation. I can provide clean code and pixel
-                perdect design. I also maje the website more & more interactive with web animations. A responsive desgin
-                makes your website accesible to all users, regardless of their device.
-            </p>
-            <a href="#" class="btn">Download CV</a>
-        </div>
-    </section>
-    <section class="content_skills">
-        <h2>Skills</h2>
-        <div class="skills">
-            <div class="skills_item">
-                <i class="skills_item-icon fab fa-html5"></i>
-                <span class='skills_item-title'>HTML</span>
-                <ul class="skills_item-bottom">
-                    <div class="skills__bar skills__bar--100"></div>
-                    <li class="skills_li">Etiquetas</li>
-                    <li class="skills_li">Accesibilidad</li>
-                    <li class="skills_li">SEO</li>
-                </ul>
+    <section id="about">
+        <div class="about">
+            <div class="about-img">
+                <img src="./Assets/5.jpg" alt="imgAbout">
             </div>
-            <div class="skills_item">
-                <i class="skills_item-icon fab fa-js-square"></i>
-                <span class='skills_item-title'>JAVASCRIPT</span>
-                <ul class="skills_item-bottom">
-                    <div class="skills__bar skills__bar--70"></div>
-                    <li class="skills_li">ES6</li>
-                    <li class="skills_li">AJAX</li>
-                    <li class="skills_li">JSON</li>
-                    <li class="skills_li">API</li>
-                    <li class="skills_li">DOM</li>
-                    <li class="skills_li">Objetos</li>
-                </ul>
-            </div>
-            <div class="skills_item">
-                <i class="skills_item-icon fab fa-css3-alt"></i>
-                <span class='skills_item-title'>CSS</span>
-                <ul class="skills_item-bottom">
-                    <div class="skills__bar skills__bar--50"></div>
-                    <li class="skills_li">CSS</li>
-                    <li class="skills_li">Flexbox</li>
-                    <li class="skills_li">Grid</li>
-                    <li class="skills_li">Responsive</li>
-                    <li class="skills_li">Transiciones & Animaciones </li>
-                </ul>
-            </div>
-            <div class="skills_item">
-                <i class="skills_item-icon fab fa-react"></i>
-                <span class='skills_item-title'>REACT</span>
-                <ul class="skills_item-bottom">
-                    <div class="skills__bar skills__bar--80"></div>
-                    <li class="skills_li">Hooks</li>
-                    <li class="skills_li">Context</li>
-                    <li class="skills_li">Redux</li>
-                    <li class="skills_li">MERN</li>
-                </ul>
-            </div>
-            <div class="skills_item">
-                <i class=' skills_item-icon bx bxs-data'></i>
-                <span class='skills_item-title'>SQL</span>
-                <ul class="skills_item-bottom">
-                    <div class="skills__bar skills__bar--80"></div>
-                    <li class="skills_li">My SQL</li>
-                    <li class="skills_li">Postgra\es sql</li>
-                    <li class="skills_li">Mongo DB</li>
-                </ul>
-            </div>
-            <div class="skills_item">
-                <i class=' skills_item-icon bx bxl-python'></i>
-                <span class='skills_item-title'>Phyton</span>
-                <ul class="skills_item-bottom">
-                    <div class="skills__bar skills__bar--80"></div>
-                    <li class="skills_li">xxxxx</li>
-                    <li class="skills_li">xxxxx</li>
-                    <li class="skills_li">xxx</li>
-                </ul>
+            <div class="about-text">
+                <h2>About Me</h2>
+                <h5>Developer <span>& Desginer</span></h5>
+                <div class="about_topic">
+                    <h5 data-id="Resumen">Resumen</h5>
+                    <h5 data-id="Educacion">Educacion</h5>
+                    <h5 data-id="Experiencia">Expereriencia</h5>
+                </div>
+                <div class="topic">
+                    <p>I'm a Front-End web DEveloper, I can provide clean code and pixel perfect design.
+                        I also make the website more & more intereactive with web animation. I can provide clean code
+                        and
+                        pixel
+                        perdect design. I also maje the website more & more interactive with web animations. A
+                        responsive
+                        desgin
+                        makes your website accesible to all users, regardless of their device.
+                    </p>
+                </div>
+                <a href="#" class="btn">Download CV</a>
             </div>
         </div>
+        <section class="content_skills">
+            <h2>Skills</h2>
+            <div class="skills">
+                <div class="skills_item">
+                    <i class="skills_item-icon fab fa-html5"></i>
+                    <span class='skills_item-title'>HTML</span>
+                    <ul class="skills_item-bottom">
+                        <div class="skills__bar skills__bar--100"></div>
+                        <li class="skills_li">Etiquetas</li>
+                        <li class="skills_li">Accesibilidad</li>
+                        <li class="skills_li">SEO</li>
+                    </ul>
+                </div>
+                <div class="skills_item">
+                    <i class="skills_item-icon fab fa-js-square"></i>
+                    <span class='skills_item-title'>JAVASCRIPT</span>
+                    <ul class="skills_item-bottom">
+                        <div class="skills__bar skills__bar--70"></div>
+                        <li class="skills_li">ES6</li>
+                        <li class="skills_li">AJAX</li>
+                        <li class="skills_li">JSON</li>
+                        <li class="skills_li">API</li>
+                        <li class="skills_li">DOM</li>
+                        <li class="skills_li">Objetos</li>
+                    </ul>
+                </div>
+                <div class="skills_item">
+                    <i class="skills_item-icon fab fa-css3-alt"></i>
+                    <span class='skills_item-title'>CSS</span>
+                    <ul class="skills_item-bottom">
+                        <div class="skills__bar skills__bar--50"></div>
+                        <li class="skills_li">CSS</li>
+                        <li class="skills_li">Flexbox</li>
+                        <li class="skills_li">Grid</li>
+                        <li class="skills_li">Responsive</li>
+                        <li class="skills_li">Transiciones & Animaciones </li>
+                    </ul>
+                </div>
+                <div class="skills_item">
+                    <i class="skills_item-icon fab fa-react"></i>
+                    <span class='skills_item-title'>REACT</span>
+                    <ul class="skills_item-bottom">
+                        <div class="skills__bar skills__bar--80"></div>
+                        <li class="skills_li">Hooks</li>
+                        <li class="skills_li">Context</li>
+                        <li class="skills_li">Redux</li>
+                        <li class="skills_li">MERN</li>
+                    </ul>
+                </div>
+                <div class="skills_item">
+                    <i class=' skills_item-icon bx bxs-data'></i>
+                    <span class='skills_item-title'>SQL</span>
+                    <ul class="skills_item-bottom">
+                        <div class="skills__bar skills__bar--80"></div>
+                        <li class="skills_li">My SQL</li>
+                        <li class="skills_li">Postgra\es sql</li>
+                        <li class="skills_li">Mongo DB</li>
+                    </ul>
+                </div>
+                <div class="skills_item">
+                    <i class=' skills_item-icon bx bxl-python'></i>
+                    <span class='skills_item-title'>Phyton</span>
+                    <ul class="skills_item-bottom">
+                        <div class="skills__bar skills__bar--80"></div>
+                        <li class="skills_li">xxxxx</li>
+                        <li class="skills_li">xxxxx</li>
+                        <li class="skills_li">xxx</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
     </section>
     <section class="services" id="services">
         <div class="center">
@@ -155,13 +167,6 @@
             <div class="row">
                 <i class='bx bxl-sketch'></i>
                 <h3>Web Development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, recusandae? A sunt sequi quod
-                    quisquam enim atque, reiciendis dicta voluptates!
-                </p>
-            </div>
-            <div class="row">
-                <i class='bx bx-home-alt-2'></i>
-                <h3>App Development</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, recusandae? A sunt sequi quod
                     quisquam enim atque, reiciendis dicta voluptates!
                 </p>

@@ -3,6 +3,7 @@ const menu = document.querySelector(".nav_item");
 const text = document.querySelector("h1");
 const number_skills = document.querySelectorAll(".skills_item h2");
 const about_img = document.querySelectorAll(".logo");
+const thema = document.querySelector(".bx");
 //------------navbar
 icon.addEventListener("click", () => {
       menu.classList.toggle("active");
