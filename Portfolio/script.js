@@ -6,71 +6,77 @@ const menu = document.querySelector("#menu-icon");
 const navbar = document.querySelector(".navbar");
 const experience = [
       {
-            company: "Fundacion Scorpius",
-            job: "Help Desk",
+            company: "TurnKey Resource",
+            job: "Analista",
             task: [
-                  "Gestión De Cms y administración de sitio web.",
-                  "Recepción y solución de problemas networking.",
-                  "Manejo de caja chica.",
-                  "Atención a clientes.",
-                  "Procesos de mantenimiento, respaldo de servidores.",
-                  "Mantenimiento y actualización de laptops y computadoras.",
-            ],
-            start: "Marzo 2020",
-            end: "Marzo 2021",
-      },
-      {
-            company: "CINNET",
-            job: "Ingeniero de Planta",
-            task: [
-                  "Actualización de planos en AutoCAD del cableado eléctrico,cableado de red, accesos, seguridades y sistema contra incendios en bloque B del Instituto Tecnológico Superior YAVIRAC.",
-                  "Control de calidad e Inspeccion de cableado de accesos y seguridades en talleres, Cableado del sistema contra  incendios, cableado de puntos de voz y datos en sala de profesores",
-                  "Planificación y ejecucion de instalación de infraestructura de puntos de Datos.",
-            ],
-            start: "Marzo 2020",
-            end: "Junio 2021",
-      },
-      {
-            company: "Tecnologia para Llevar",
-            job: "Administrador",
-            task: [
-                  "Servicio de help desk.",
-                  "Recepción y solución de problemas networking.",
-                  "Soporte en software y mantenimiento de Laptops y Computadores.",
-                  "Control de salida e ingreso de mercaderia.",
-                  "Uso y planificación con Kardex.",
-                  "Administración de Local y atención al cliente.",
+                  "-Análisis xxxxxxxxxxxxxxxxxxxxxx.",
+                  "-Control xxxxxxxxxxxxxxxxxxxxxxx.",
+                  "-Gestionar xxxxxxxxxxxxxxxxxxxxxxxx.",
+                  "-Administracion xxxxxxxxxxxxxxxxxxxxxx.",
             ],
             start: "Junio 2020",
-            end: "Septiembre 2021",
+            end: "Actual",
       },
       {
             company: "JassaTelecom",
             job: "Jefe Tecnico",
             task: [
-                  "Análisis y Diseño de red Gpon.",
-                  "Control y Análisis del personal de Campo para el levantamiento de la red de fibra óptica.",
-                  "Dibujante de los planos de la red de Fibra.",
-                  "Control de salida e ingreso de mercaderia.",
-                  "Gestionar el Rediseño de la red.",
-                  "Administracion de bodega.",
+                  "-Análisis y Diseño de red Gpon.",
+                  "-Control y Análisis del personal de Campo para el levantamiento de la red de fibra óptica.",
+                  "-Dibujante de los planos de la red de Fibra.",
+                  "-Control de salida e ingreso de mercaderia.",
+                  "-Gestionar el Rediseño de la red.",
+                  "-Administracion de bodega.",
             ],
             start: "Septiembre 2020",
             end: "Enero 2021",
       },
       {
-            company: "TurnKey Resource",
-            job: "Analista",
+            company: "Tecnologia para Llevar",
+            job: "Administrador",
             task: [
-                  "Análisis y Diseño de red Gpon.",
-                  "Control y Análisis del personal de Campo para el levantamiento de la red de fibra óptica.",
-                  "Dibujante de los planos de la red de Fibra.",
-                  "Control de salida e ingreso de mercaderia.",
-                  "Gestionar el Rediseño de la red.",
-                  "Administracion de bodega.",
+                  "-Servicio de help desk.",
+                  "-Recepción y solución de problemas networking.",
+                  "-Soporte en software y mantenimiento de Laptops y Computadores.",
+                  "-Control de salida e ingreso de mercaderia.",
+                  "-Uso y planificación con Kardex.",
+                  "-Administración de Local y atención al cliente.",
             ],
             start: "Junio 2020",
-            end: "Actual",
+            end: "Septiembre 2021",
+      },
+      {
+            company: "CINNET",
+            job: "Ingeniero de Planta",
+            task: [
+                  "-Actualización de planos en AutoCAD del cableado eléctrico,cableado de red, accesos, seguridades y sistema contraincendios en YAVIRAC.",
+                  "-Control de calidad e Inspeccion de cableado de accesos y seguridades en talleres.",
+                  "-Planificación y ejecucion de instalación de infraestructura de puntos de Datos.",
+            ],
+            start: "Marzo 2020",
+            end: "Marzo 2021",
+      },
+      {
+            company: "Fundacion Scorpius",
+            job: "Help Desk",
+            task: [
+                  "-Gestión De Cms y administración de sitio web.",
+                  "-Recepción y solución de problemas networking.",
+                  "-Manejo de caja chica.",
+                  "-Atención a clientes.",
+                  "-Procesos de mantenimiento, respaldo de servidores.",
+                  "-Mantenimiento y actualización de laptops y computadoras.",
+            ],
+            start: "Marzo 2020",
+            end: "Marzo 2021",
+      },
+];
+const education = [
+      { name: "Universidad Politecnica Salesiana", title: "Ingeniero Electronico", icon: "./Assets/ups.png" },
+      {
+            name: "Academlo",
+            title: "Fullstack Developer",
+            icon: "./Assets/Academlo.png",
       },
 ];
 
@@ -141,7 +147,6 @@ setTimeout(typingName, 200);
 
 //*---------------------- About-------------------*//
 function resumen() {
-      console.log("Resumen");
       let text =
             "I am a Front-End web DEveloper, I can provide clean code and pixel perfect design. I also make the website more & more intereactive with web animation. I can provide clean code and pixel perdect design. I also maje the website more & more interactive with web animations. A responsive desgin makes your website accesible to all users, regardless of their device.";
       const paragraph = document.createElement("p");
@@ -151,18 +156,16 @@ function resumen() {
       content.appendChild(paragraph);
 }
 function experiencia() {
-      console.log("Experiencia");
       const content = document.querySelector(".topic");
-      let job = "";
       content.innerHTML = "";
       experience.forEach((item) => {
             const card = document.createElement("div");
-            card.classList.add("card_topic");
+            card.classList.add("topic_card");
             let title = document.createElement("h4");
             title.textContent = item.company;
             let years = document.createElement("span");
             years.textContent = `${item.start} - ${item.end}`;
-            let description = document.createElement("ol");
+            let description = document.createElement("ul");
             item.task.forEach((activity) => {
                   let li = document.createElement("li");
                   li.textContent = activity;
@@ -176,5 +179,24 @@ function experiencia() {
       });
 }
 function educacion() {
-      console.log("Educacion");
+      const content = document.querySelector(".topic");
+      content.innerHTML = "";
+      education.forEach((item) => {
+            const card = document.createElement("div");
+            card.classList.add("education_card");
+            const div = document.createElement("div");
+            div.classList.add("education_text");
+            let title = document.createElement("h4");
+            title.textContent = item.name;
+            let text = document.createElement("span");
+            text.textContent = item.title;
+            let img = document.createElement("img");
+            img.src = item.icon;
+            img.classList.add("education_img");
+            card.appendChild(img);
+            div.appendChild(title);
+            div.appendChild(text);
+            card.append(div);
+            content.appendChild(card);
+      });
 }
