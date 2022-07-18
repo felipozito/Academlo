@@ -9,10 +9,10 @@ const experience = [
             company: "TurnKey Resource",
             job: "Analista",
             task: [
-                  "-Análisis xxxxxxxxxxxxxxxxxxxxxx.",
-                  "-Control xxxxxxxxxxxxxxxxxxxxxxx.",
-                  "-Gestionar xxxxxxxxxxxxxxxxxxxxxxxx.",
-                  "-Administracion xxxxxxxxxxxxxxxxxxxxxx.",
+                  "-Supervisa y apoyar el óptimo funcionamiento de los sistemas que la empresa.",
+                  "-Planificar, coordinar, dirigir y controlar las actividades de trabajo relacionadas a la creación, redacción, documentación y actualización.",
+                  "-Elaborar, mantener actualizados y debidamente documentados los instructivos de los procesos realizados en la organización.",
+                  "-Participar en el desarrollo de nuevos proyectos en materia de métodos, procedimientos y técnicas.",
             ],
             start: "Junio 2020",
             end: "Actual",
@@ -72,11 +72,15 @@ const experience = [
       },
 ];
 const education = [
-      { name: "Universidad Politecnica Salesiana", title: "Ingeniero Electronico", icon: "./Assets/ups.png" },
       {
             name: "Academlo",
             title: "Fullstack Developer",
             icon: "./Assets/Academlo.png",
+      },
+      {
+            name: "Universidad Politecnica Salesiana",
+            title: "Ingeniero Electronico",
+            icon: "./Assets/ups.png",
       },
 ];
 
@@ -89,7 +93,7 @@ window.onscroll = () => {
       navbar.classList.remove("active");
 };
 window.addEventListener("click", (e) => {
-      console.log(e.target);
+      //   console.log(e.target);
       if (e.target.classList.value.includes("bx bxs-moon") || e.target.classList.value.includes("bx bxs-sun")) {
             darkmode(e.target.classList.value);
       }
@@ -148,7 +152,7 @@ setTimeout(typingName, 200);
 //*---------------------- About-------------------*//
 function resumen() {
       let text =
-            "I am a Front-End web DEveloper, I can provide clean code and pixel perfect design. I also make the website more & more intereactive with web animation. I can provide clean code and pixel perdect design. I also maje the website more & more interactive with web animations. A responsive desgin makes your website accesible to all users, regardless of their device.";
+            "I am a Front-End web Developer, I can provide clean code and pixel perfect design. I also make the website more & more intereactive with web animation. I can provide clean code and pixel perdect design. I also maje the website more & more interactive with web animations. A responsive desgin makes your website accesible to all users, regardless of their device.";
       const paragraph = document.createElement("p");
       paragraph.textContent = text;
       const content = document.querySelector(".topic");
@@ -164,16 +168,18 @@ function experiencia() {
             let title = document.createElement("h4");
             title.textContent = item.company;
             let years = document.createElement("span");
+            const div = document.createElement("div");
+            div.classList.add("job_text");
+            div.appendChild(title);
+            div.appendChild(years);
             years.textContent = `${item.start} - ${item.end}`;
             let description = document.createElement("ul");
             item.task.forEach((activity) => {
                   let li = document.createElement("li");
                   li.textContent = activity;
                   description.appendChild(li);
-                  console.log(activity);
             });
-            card.appendChild(title);
-            card.appendChild(years);
+            card.appendChild(div);
             card.appendChild(description);
             content.appendChild(card);
       });
