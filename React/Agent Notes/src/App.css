@@ -1,0 +1,52 @@
+#root {
+      max-width: 1280px;
+      text-align: center;
+}
+.App {
+      background: red;
+      min-height: 100vh;
+      min-width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.content_card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 800px;
+      min-height: 200px;
+      border-radius: 20px;
+      padding: 0px 20px;
+      box-shadow: 1px 1px 10px black;
+      position: relative;
+}
+.content_card h2 {
+      align-self: center;
+      margin-left: 40px;
+}
+.content_card p {
+      align-self: flex-end;
+}
+.content_card Button {
+      align-self: flex-end;
+}
+.bx {
+      font-size: 40px;
+      position: absolute;
+      top: 20px;
+}
+.btn {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+}
+.btn button {
+      background: red;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+      box-shadow: 1px 1px 5px black;
+      color: white;
+      font-weight: bold;
+}

@@ -4,6 +4,7 @@ const header = document.querySelector("header");
 const text = document.querySelector(".name");
 const menu = document.querySelector("#menu-icon");
 const navbar = document.querySelector(".navbar");
+const icon = document.querySelectorAll("i");
 const experience = [
       {
             company: "TurnKey Resource",
@@ -83,7 +84,6 @@ const education = [
             icon: "./Assets/ups.png",
       },
 ];
-
 window.addEventListener("scroll", () => {
       header.classList.toggle("sticky", window.scrollY > 0);
 });
