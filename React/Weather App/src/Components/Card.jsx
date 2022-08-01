@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import us from "../assets/usa.svg";
 import es from "../assets/spain.svg";
-const Card = ({ latitude, longitude, setLoader }) => {
+const Card = ({ latitude, longitude, setLoader, setBackground }) => {
       const lenguages = [
             { title: "Weather App", text1: "Wind Speed: ", text2: "Clouds: ", text3: "Pressure: ", btn: "Change" },
             { title: "App del Clima", text1: "Velocidad del viento: ", text2: "Nubes: ", text3: "Presion: ", btn: "Cambiar" },
@@ -12,6 +12,20 @@ const Card = ({ latitude, longitude, setLoader }) => {
       const [temperature, setTemperature] = useState();
       const [grade, setGrade] = useState(true);
       const APIKEY = "1c8e7465cb762b6fe744f51be11186a9";
+      const chooseImage = (item) => {
+            if (item.includes("rain") || item.includes("lluvia")) {
+                  setBackground(0);
+            }
+            if (item.includes("clear") || item.includes("cielo")) {
+                  setBackground(1);
+            }
+            if (item.includes("cloud") || item.includes("nubes")) {
+                  setBackground(2);
+            }
+            if (item.includes("storm") || item.includes("tormenta")) {
+                  setBackground(3);
+            }
+      };
       useEffect(() => {
             if (latitude) {
                   const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${APIKEY}&lang=${
@@ -24,14 +38,13 @@ const Card = ({ latitude, longitude, setLoader }) => {
                                     celcius: `${(res.data.main.temp - 273).toFixed(1)} C`,
                                     fahrenheit: `${(((res.data.main.temp - 273.15) * 9) / 5 + 32).toFixed(1)} F`,
                               };
+                              chooseImage(res.data.weather[0].description);
                               setTemperature(temp);
                               setLoader(false);
-                              //   console.log(temperature);
                         })
                         .catch((error) => console.log(error));
             }
       }, [latitude, longitude, len]);
-      //   console.log(weather);
       const degree = () => {
             setGrade(!grade);
       };
