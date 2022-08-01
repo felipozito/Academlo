@@ -1,0 +1,7 @@
+.card {
+      background: rgb(193, 54, 54);
+      border-radius: 20px;
+}
+.card img {
+      border-radius: 100%;
+}
