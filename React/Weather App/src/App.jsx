@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Card from "./Components/Card";
 import Loader from "./Components/Loader";
-import rain from "./assets/rain.jpg";
+import rain from "./assets/rain.jpeg";
 import sun from "./assets/sun.jpg";
 import storm from "./assets/thunderstorm.jpg";
 import cloud from "./assets/cloud.jpg";

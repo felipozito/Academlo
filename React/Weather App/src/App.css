@@ -12,7 +12,12 @@
       padding: 20px;
       position: relative;
       width: 400px;
-      height: 400px;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      box-shadow: 1px 1px 10px black;
 }
 .main {
       display: flex;
@@ -24,8 +29,7 @@
 }
 .lenguage {
       position: absolute;
-      display: flex;
-      justify-content: space-evenly;
+      top: 10px;
 }
 .lenguage img {
       object-fit: contain;
