@@ -43,7 +43,9 @@ function App() {
                         <button>Search</button>
                   </form>
                   <div className="location">
-                        <h2>{location?.name}</h2>
+                        <h2>
+                              {location?.name} #{location?.id}
+                        </h2>
                         <div className="location_info">
                               <span>
                                     Type:<h3>{location?.type}</h3>
