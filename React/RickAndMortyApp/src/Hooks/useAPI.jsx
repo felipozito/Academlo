@@ -9,7 +9,7 @@ const useAPI = (URL) => {
                         setResponse(res.data);
                   })
                   .catch((error) => console.log(error));
-      }, []);
+      }, [URL]);
 
       return response;
 };

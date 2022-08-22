@@ -6,13 +6,14 @@ import Header from "./Components/Header";
 import Page from "./Components/Page";
 import Empty from "./Components/Empty";
 import Footer from "./Components/Footer";
+import SearchResult from "./Components/SearchResult";
 
 function App() {
       const random = Math.floor(Math.random() * 125 + 1);
       const [input, setInput] = useState();
       const [location, setLocation] = useState();
-      let total;
-      let URL = `https://rickandmortyapi.com/api/location/${input ? input : random}`;
+      const [search, setSearch] = useState("");
+      let URL = `https://rickandmortyapi.com/api/location/name=${input ? input : random}`;
 
       useEffect(() => {
             axios.get(URL)
@@ -27,20 +28,13 @@ function App() {
             e.preventDefault();
             setInput(e.target.text.value);
       };
-      const onChange = (e) => {
-            e.preventDefault(e);
-            console.log(e.target.text);
-      };
-      const pagination = () => {};
-      for (let i = 1; i <= total; i++) {
-            return <Page number={i} />;
-      }
       return (
             <div className="App">
                   <Header />
-                  <form onSubmit={onSubmit} className="form" onChange={onChange}>
-                        <input type="text" name="text" placeholder="Location ID" />
+                  <form onSubmit={onSubmit} className="form">
+                        <input type="text" name="text" placeholder="Location ID" onChange={(e) => setSearch(e.target.value)} />
                         <button>Search</button>
+                        {search == "" ? "" : <SearchResult URL={`https://rickandmortyapi.com/api/location/?name=${search}`} input={setInput} />}
                   </form>
                   <div className="location">
                         <h2>
