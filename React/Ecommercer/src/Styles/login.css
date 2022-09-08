@@ -1,0 +1,118 @@
+.login-container {
+      background: rgba(210, 203, 203, 0.1);
+}
+
+.login-container .main-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80vh;
+}
+
+.login {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      padding: 25px;
+      background: #fff;
+}
+
+.login strong {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      display: block;
+      font-weight: 500;
+      line-height: 1.6;
+}
+
+.user-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      margin: 0 auto 20px auto;
+      display: block;
+}
+
+.login-message {
+      color: #2fa8f8;
+      margin-bottom: 10px;
+      text-align: center;
+}
+
+.login .input-container {
+      margin-bottom: 20px;
+}
+
+.login .input-container input {
+      display: block;
+      width: 100%;
+      padding: 6px 8px;
+      margin-top: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 3px;
+}
+
+.login .submit-button {
+      background: var(--primary);
+      width: 100%;
+      padding: 9px;
+      color: var(--main_color);
+      border-radius: 20px;
+      border: 1px solid var(--main_color);
+      margin: 10px 0 25px;
+      transition: all 0.4s ease-in-out;
+      font-weight: bold;
+}
+.submit-button:hover {
+      transform: translateY(-5px);
+      background: var(--main_color);
+      color: white;
+}
+
+.login .error-message {
+      color: #2fa8f8;
+      text-align: center;
+}
+
+.login .test-data {
+      background: #d8f5fd;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+}
+
+.login .test-data b {
+      display: block;
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+}
+
+.login .test-data .field {
+      margin-bottom: 6px;
+}
+
+.login .test-data .field i {
+      margin-right: 13px;
+      font-size: 1.2rem;
+}
+
+.switch-forms {
+      font-size: 0.9rem;
+}
+
+.switch-forms button,
+.user-info button {
+      color: #2fa8f8;
+      background: transparent;
+      font-size: inherit;
+}
+
+.user-info {
+      text-align: center;
+}
+
+.user-info b {
+      display: block;
+      margin-bottom: 10px;
+}
