@@ -1,8 +1,8 @@
 const uuid = require("uuid");
-const Movies = require("../models/products.models");
+const Products = require("../models/products.models");
 
 const getAllProducts = () => {
-      const data = Movies.findAll(); //? Traer todas las peliculas
+      const data = Products.findAll(); //? Traer todas las peliculas
       //? Select * from movies;
       return data;
 };
@@ -11,7 +11,7 @@ const getAllProducts = () => {
 //       .catch((err) => console.log(err));
 
 const createProduct = async (data) => {
-      const newMovie = await Movies.create({
+      const newMovie = await Products.create({
             id: uuid.v4(),
             name: data.name,
             category: data.category,
@@ -21,14 +21,14 @@ const createProduct = async (data) => {
 
       return newMovie;
 };
-createProduct({
-      name: "Iphone",
-      category: "Cellphone",
-      price: 120,
-      isAvailable: true,
-})
-      .then((response) => console.log(response))
-      .catch((err) => console.log(err));
+// createProduct({
+//       name: "Iphone",
+//       category: "Cellphone",
+//       price: 120,
+//       isAvailable: true,
+// })
+//       .then((response) => console.log(response))
+//       .catch((err) => console.log(err));
 
 const getProductById = async (id) => {
       const data = await Products.findOne({
@@ -47,7 +47,6 @@ const editProduct = async (id, data) => {
       const response = await Products.update(data, {
             where: {
                   id: id,
-                  name: "Pacific Rim",
             },
       });
       return response;
@@ -64,7 +63,7 @@ const editProduct = async (id, data) => {
 //   });
 
 const deleteProduct = async (id) => {
-      const data = await Movies.destroy({
+      const data = await Products.destroy({
             where: {
                   id: id,
             },

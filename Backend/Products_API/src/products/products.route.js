@@ -4,12 +4,12 @@ const productsServices = require("./products.services");
 
 //? Este es el prefijo: /movies
 
-router.get("/", productsServices.getAllProducts); //? /movies/
-router.post("/", productsServices.postProduct); //? /movies/
+router.get("/", productsServices.getAllProducts);
+router.post("/", productsServices.postProduct);
 
-router.get("/:id", productsServices.getProductById); //? /movies/:id
-router.delete("/:id", productsServices.deleteProduct); //? /movies/:id
-router.patch("/:id", productsServices.patchProduct); //? /movies/:id
-//router.put('/:id') //? /movies/:id
+router.get("/:id", productsServices.getProductById);
+router.delete("/:id", productsServices.deleteProduct);
+router.patch("/:id", productsServices.patchProduct);
+router.put("/:id", productsServices.putProduct);
 
 module.exports = router;

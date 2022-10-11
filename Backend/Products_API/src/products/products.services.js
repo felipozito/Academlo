@@ -40,7 +40,7 @@ const getProductById = (req, res) => {
                   }
             })
             .catch((err) => {
-                  res.status(404).json({ message: err.message });
+                  res.status(404).json({ message: err.message, data: req });
             });
 };
 //? Modificacion parcial
@@ -54,7 +54,7 @@ const patchProduct = (req, res) => {
                   //? [0]
                   if (response[0]) {
                         res.status(200).json({
-                              message: `Movie with id: ${id}, edited succesfully!`,
+                              message: `The product with id: ${id}, edited succesfully!`,
                         });
                   } else {
                         res.status(400).json({ message: "Invalid ID" });
@@ -65,13 +65,47 @@ const patchProduct = (req, res) => {
             });
 };
 
+//! Modificacion total
+
+const putProduct = (req, res) => {
+      const id = req.params.id;
+      const { name, category, price, isAvailable } = req.body;
+
+      //? Este if es para validar los datos, y generar error si no vienen todos los necesarios
+      if (name && category && price && isAvailable) {
+            moviesControllers
+                  .editMovie(id, { name, category, price, isAvailable })
+                  .then((response) => {
+                        //? Este if valida si una pelicula existe o no (Valid or Invalid ID)
+                        if (response[0]) {
+                              res.status(200).json({ message: `The product with ID: ${id}, edited succesfully!` });
+                        } else {
+                              res.status(404).json({ message: "Invalid ID" });
+                        }
+                  })
+                  .catch((err) => {
+                        res.status(400).json({ message: err.message });
+                  });
+      } else {
+            res.status(400).json({
+                  message: "Missing data",
+                  fields: {
+                        name: "string",
+                        category: "string",
+                        price: "integer",
+                        isAvailable: "True or False",
+                  },
+            });
+      }
+};
+
 const deleteProduct = (req, res) => {
       const id = req.params.id;
       productsControllers
             .deleteProduct(id)
             .then((response) => {
                   if (response) {
-                        res.status(204).json();
+                        res.status(204).json({ message: "Completed Delete item" });
                   } else {
                         res.status(400).json({ message: "Invalid ID" });
                   }
@@ -86,5 +120,6 @@ module.exports = {
       getProductById,
       postProduct,
       patchProduct,
+      putProduct,
       deleteProduct,
 };
